@@ -1,4 +1,5 @@
 .chef
 *.lock
 clients/
+cookbooks/
 nodes/
