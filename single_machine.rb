@@ -1,5 +1,5 @@
 require 'chef/provisioning'
 
-machine 'db' do
+machine 'simplest_server' do
   tag 'chef-provisioning-example'
 end
