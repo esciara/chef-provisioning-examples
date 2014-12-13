@@ -1,4 +1,5 @@
-.chef/local-mode-cache/
+.chef/**
+!.chef/knife.rb
 *.lock
 clients/
 cookbooks/
