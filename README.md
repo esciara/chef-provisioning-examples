@@ -44,6 +44,10 @@ This is done with:
 
 `$ berks install && berks vendor cookbooks`
 
+### Set the Key Pair to your own
+
+This is done by putting your own key pair name in the `:key_name` option in the `aws_setup.rb` file.
+
 ## Launch the examples with Vagrant setup 
 
 This is done with (pick your choice, and if there are new recipes not mentioned here, well use them by copying the examples below!!!):
