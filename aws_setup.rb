@@ -1,7 +1,7 @@
 require 'chef/provisioning'
 
 # Needs to have the ~/.aws/config set up for it to work
-with_driver 'fog:AWS:esciara'
+with_driver 'fog:AWS'
 with_machine_options :bootstrap_options => { 
   :key_name => 'chefserver', 
   :image_id => 'ami-60a10117', 
