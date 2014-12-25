@@ -7,10 +7,9 @@ Set of examples to start gradually with [Chef Provisioning](https://github.com/o
 ## Requirements
 
 * Ruby installed (tested with version 2.1.5)
-* Bundler installed (tested with version 1.7.8)
+* ChefDK installed (tested with version 0.3.5)
+* Vagrant installed (tested with version 1.6.5)
 * VirtualBox installed (tested with version 4.3.10)
-
-(no I am not using ChefDK, but prefer going throug Bundler... Will explain why in a next iteration of this doc)
 
 This was all tested (Vagrant and AWS setups) on OS X Yosemite (10.10.1). I also tested the AWS setup from an Ubuntu precise64 vm using Vagrant on my mac.
 
@@ -39,12 +38,6 @@ I add `my_aws_key.pem` in `~/.chef/keys/`
 
 ## Before you can launch the examples
 
-### Launch Bundler to install all the required gems
-
-This is done with:
-
-`$ bundle install`
-
 ### Get the cookbooks with Berkshelf
 
 This is done with:
@@ -56,15 +49,15 @@ This is done with:
 This is done with (pick your choice, and if there are new recipes not mentioned here, well use them by copying the examples below!!!):
 
 ```
-$ bundle exec chef-client -z vagrant_setup.rb simplest_machine.rb
-$ bundle exec chef-client -z vagrant_setup.rb single_machine_converging.rb
-$ bundle exec chef-client -z vagrant_setup.rb whatever_new_recipe.rb
+$ chef-client -z vagrant_setup.rb simplest_machine.rb
+$ chef-client -z vagrant_setup.rb single_machine_converging.rb
+$ chef-client -z vagrant_setup.rb whatever_new_recipe.rb
 ```
 
 You destroy all created machines with:
 
 ```
-$ bundle exec chef-client -z vagrant_setup.rb destroy_all.rb
+$ chef-client -z vagrant_setup.rb destroy_all.rb
 ```
 
 ## Launch the examples with AWS setup 
@@ -74,8 +67,8 @@ Same as for the Vagrant setup but by replacing `vagrant_setup.rb` with `aws_setu
 For instance:
 
 ```
-$ bundle exec chef-client -z vagrant_setup.rb simplest_machine.rb
-$ bundle exec chef-client -z vagrant_setup.rb destroy_all.rb
+$ chef-client -z vagrant_setup.rb simplest_machine.rb
+$ chef-client -z vagrant_setup.rb destroy_all.rb
 ```
 
 ## TO DO
