@@ -71,8 +71,8 @@ Same as for the Vagrant setup but by replacing `vagrant_setup.rb` with `aws_setu
 For instance:
 
 ```
-$ chef-client -z vagrant_setup.rb simplest_machine.rb
-$ chef-client -z vagrant_setup.rb destroy_all.rb
+$ chef-client -z aws_setup.rb simplest_machine.rb
+$ chef-client -z aws_setup.rb destroy_all.rb
 ```
 
 ## TO DO
