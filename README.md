@@ -15,6 +15,8 @@ This was all tested (Vagrant and AWS setups) on OS X Yosemite (10.10.1). I also 
 
 ## Setup for AWS usage
 
+**Note**: AWS might not work at the present because of default security groups issues. see [Launch the examples with AWS setup](#launch-the-examples-with-aws-setup) section.
+
 ### AWS credentials
 
 Added AWS credentials in `~/.aws` as per http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-config-files but putting everything in the `~/.aws/config` file.
@@ -65,6 +67,12 @@ $ chef-client -z vagrant_setup.rb destroy_all.rb
 ```
 
 ## Launch the examples with AWS setup 
+
+**Note**: AWS might not work at the present because of default security groups issues. This is because port 22 for SSH is closed in the default security group, and therefore Chef Provisioning cannot connect to it once it is created. Three potential workarounds that need to be tested:
+
+* Manually open by default port 22 on the default security group => bad hack... Will mean port 22 is opened to every future instance created on AWS (manually or automatically).
+* Manually create a VPC with a security group for that VPC that opens port 22 and then change the `aws_setup.rb` to use it for the maching => a bit safer if you use this VPC only for your tests purposes.
+* Create automatically the VPC and the security group using [AWS SDK for Ruby](http://aws.amazon.com/fr/sdk-for-ruby/) or [Chef Provisioning AWS driver](https://github.com/opscode/chef-provisioning-aws) => rocks but probably too complicated for this set of examples.
 
 Same as for the Vagrant setup but by replacing `vagrant_setup.rb` with `aws_setup.rb`.
 
