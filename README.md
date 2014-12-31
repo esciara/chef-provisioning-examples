@@ -68,7 +68,7 @@ $ chef-client -z vagrant_setup.rb destroy_all.rb
 
 ## Launch the examples with AWS setup 
 
-**Note**: Make sure that your default security group opens up the ssd port (22) to the outside, otherwise Chef Provisioning will not be able to connect to it. See issue #3 for more details.
+**Note**: Make sure that your default security group opens up the ssd port (22) to the outside, otherwise Chef Provisioning will not be able to connect to it. See [issue #3](https://github.com/esciara/chef-provisioning-examples/issues/3) for more details.
 
 Same as for the Vagrant setup but by replacing `vagrant_setup.rb` with `aws_setup.rb`.
 
