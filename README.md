@@ -15,7 +15,7 @@ This was all tested (Vagrant and AWS setups) on OS X Yosemite (10.10.1). I also 
 
 ## Setup for AWS usage
 
-**Note**: AWS might not work at the present: see [Launch the examples with AWS setup](#launch-the-examples-with-aws-setup) section.
+**Note**: machine creation on AWS will not work is the ssh port is not open: see [Launch the examples with AWS setup](#launch-the-examples-with-aws-setup) section.
 
 ### AWS credentials
 
@@ -68,7 +68,7 @@ $ chef-client -z vagrant_setup.rb destroy_all.rb
 
 ## Launch the examples with AWS setup 
 
-**Note**: AWS might not work at the present because of problems accessing `t1.micro` type of instances through `ssh`. See #3 for details.
+**Note**: Make sure that your default security group opens up the ssd port (22) to the outside, otherwise Chef Provisioning will not be able to connect to it. See issue #3 for more details.
 
 Same as for the Vagrant setup but by replacing `vagrant_setup.rb` with `aws_setup.rb`.
 
