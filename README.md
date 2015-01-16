@@ -20,6 +20,10 @@ Since we are now using Bundler, it means that you will have to run the following
 $ bundle install
 ```
 
+## Setup for Vagrant usage
+
+... Nothing else to do. You already have installed what is needed through the requirements.
+
 ## Setup for AWS usage
 
 **Note**: machine creation on AWS will not work is the ssh port is not open: see [Launch the examples with AWS setup](#launch-the-examples-with-aws-setup) section.
