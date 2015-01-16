@@ -7,11 +7,18 @@ Set of examples to start gradually with [Chef Provisioning](https://github.com/o
 ## Requirements
 
 * Ruby installed (tested with version 2.1.5)
-* ChefDK installed (tested with version 0.3.5)
+* ChefDK (tested with version 0.3.5) => following problems triggered by [a bug related to a minor patch update of `net-ssh`](https://github.com/opscode/chef-provisioning/issues/263), we are not installing ChefDK on the development system with [the provided installers](https://downloads.chef.io/chef-dk/) but reverting back to using Bundler, with the required gems declared and locked.
 * Vagrant installed (tested with version 1.6.5)
 * VirtualBox installed (tested with version 4.3.10)
 
 This was all tested (Vagrant and AWS setups) on OS X Yosemite (10.10.1). I also tested the AWS setup from an Ubuntu precise64 vm using Vagrant on my mac.
+
+## Finishing the setup for your development environnement
+
+Since we are now using Bundler, it means that you will have to run the following before starting experimenting with these examples:
+```
+$ bundle install
+```
 
 ## Setup for AWS usage
 
@@ -55,15 +62,15 @@ This is done by putting your own key pair name in the `:key_name` option in the 
 This is done with (pick your choice, and if there are new recipes not mentioned here, well use them by copying the examples below!!!):
 
 ```
-$ chef-client -z vagrant_setup.rb simplest_machine.rb
-$ chef-client -z vagrant_setup.rb single_machine_converging.rb
-$ chef-client -z vagrant_setup.rb whatever_new_recipe.rb
+$ bundle exec chef-client -z vagrant_setup.rb simplest_machine.rb
+$ bundle exec chef-client -z vagrant_setup.rb single_machine_converging.rb
+$ bundle exec chef-client -z vagrant_setup.rb whatever_new_recipe.rb
 ```
 
 You destroy all created machines with:
 
 ```
-$ chef-client -z vagrant_setup.rb destroy_all.rb
+$ bundle exec chef-client -z vagrant_setup.rb destroy_all.rb
 ```
 
 ## Launch the examples with AWS setup 
@@ -75,8 +82,8 @@ Same as for the Vagrant setup but by replacing `vagrant_setup.rb` with `aws_setu
 For instance:
 
 ```
-$ chef-client -z aws_setup.rb simplest_machine.rb
-$ chef-client -z aws_setup.rb destroy_all.rb
+$ bundle exec chef-client -z aws_setup.rb simplest_machine.rb
+$ bundle exec chef-client -z aws_setup.rb destroy_all.rb
 ```
 
 ## TO DO
