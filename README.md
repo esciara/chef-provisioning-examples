@@ -45,6 +45,12 @@ For more info, Chef doc at https://github.com/opscode/chef-provisioning/blob/mas
 
 ### AWS private Key
 
+You have to set the name of your private key in the `AWS_KEYPAIR_NAME` environment variable so it can be used in `aws_setup.rb`:
+
+```
+$ export AWS_KEYPAIR_NAME=my_aws_key
+```
+
 Here is the [documented info on where to place your private key](https://github.com/opscode/chef-provisioning/blob/master/docs/blogs/2012-05-22-new-driver-interface.html.markdown#private-keys)
 
 Personally, I have placed `my_aws_key.pem` in `~/.chef/keys/`
