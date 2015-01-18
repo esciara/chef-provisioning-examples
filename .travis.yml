@@ -5,9 +5,9 @@ rvm:
 cache:
   bundler: true
 before_install:
-- sudo apt-get install -qq libgecode-dev
 - echo -n $DO_KEY_CHUNK_{0..30} >> ~/.ssh/id_do.base64
 - cat ~/.ssh/id_do.base64 | tr -d ' ' | base64 --decode > ~/.ssh/travisci_chef_cook_ec2.pem
+- chmod 400 ~/.ssh/travisci_chef_cook_ec2.pem
 - ls -la ~/.ssh
 script:
 - bundle exec rake aws_simplest
