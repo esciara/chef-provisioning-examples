@@ -14,7 +14,7 @@ end
 
 desc "Fires up the simplest_machine recipe on Vagrant using chef-zero."
 task :vagrant_simplest do
-  puts "Converging simplest_machine.rb using xebia's chef server."
+  puts "Converging simplest_machine.rb using chef-zero."
   sh "bundle exec chef-client -z vagrant_setup.rb simplest_machine.rb"
 end
 
@@ -34,7 +34,7 @@ end
 
 desc "Fires up the simplest_machine recipe on AWS using chef-zero."
 task :aws_simplest do
-  puts "Converging simplest_machine.rb using xebia's chef server."
+  puts "Converging simplest_machine.rb using chef-zero."
   sh "bundle exec chef-client -z aws_setup.rb simplest_machine.rb"
 end
 
