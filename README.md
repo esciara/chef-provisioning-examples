@@ -53,41 +53,79 @@ I add `my_aws_key.pem` in `~/.chef/keys/`
 
 ### Get the cookbooks with Berkshelf
 
-This is done with:
+For any recipe other than `simplest_machine.rb`, you will need to upload the cookbooks your recipes are depending on to Chef Zero so it can find them. "Uploading" in the case of Chef Zero simply means having Berkshelf resolving the cookbooks that are listed in the `Berksfile` file and copying them to `./cookbooks/`.
 
-`$ berks install && berks vendor cookbooks`
+You can do this either by using Rake:
+
+`$ bundle exec rake upload`
+
+or by directly calling Berkshelf:
+
+`$ bundle exec berks vendor cookbooks`
+
+Note that when using Rake to subsequently run recipes (as instructed further down), the `upload` task will always be called within the recipes tasks when they depend on cookbooks.
 
 ### Set the Key Pair to your own
 
 This is done by putting your own key pair name in the `:key_name` option in the `aws_setup.rb` file.
 
-## Launch the examples with Vagrant setup 
+## Launch the examples with the Vagrant setup 
 
-This is done with (pick your choice, and if there are new recipes not mentioned here, well use them by copying the examples below!!!):
+You can launch the examples either by using the Rake tasks or by calling the chef-client.
+
+### Simplest machine
 
 ```
+$ bundle exec rake vagrant_simplest
+
+or
+
 $ bundle exec chef-client -z vagrant_setup.rb simplest_machine.rb
+```
+### Single machine with converging cookbooks
+
+```
+$ bundle exec rake vagrant_single
+
+or
+
+$ bundle exec berks vendor cookbooks
 $ bundle exec chef-client -z vagrant_setup.rb single_machine_converging.rb
+```
+
+### Any other recipe
+
+```
+$ bundle exec berks vendor cookbooks
 $ bundle exec chef-client -z vagrant_setup.rb whatever_new_recipe.rb
 ```
 
-You destroy all created machines with:
+### Destroying the converged machines
+Converged machine can be destroy as follows:
 
 ```
+$ bundle exec rake vagrant_destroy
+
+or
+
 $ bundle exec chef-client -z vagrant_setup.rb destroy_all.rb
 ```
 
-## Launch the examples with AWS setup 
+## Launch the examples with the AWS setup 
 
 **Note**: Make sure that your default security group opens up the ssd port (22) to the outside, otherwise Chef Provisioning will not be able to connect to it. See [issue #3](https://github.com/esciara/chef-provisioning-examples/issues/3) for more details.
 
-Same as for the Vagrant setup but by replacing `vagrant_setup.rb` with `aws_setup.rb`.
+Same as for the Vagrant setup by just replacing `vagrant` with `aws` for the Rake tasks, or `vagrant_setup.rb` with `aws_setup.rb` when called with Chef Client.
 
 For instance:
 
 ```
+$ bundle exec rake aws_simplest
+
+or
+
+$ bundle exec berks vendor cookbooks
 $ bundle exec chef-client -z aws_setup.rb simplest_machine.rb
-$ bundle exec chef-client -z aws_setup.rb destroy_all.rb
 ```
 
 ## TO DO
