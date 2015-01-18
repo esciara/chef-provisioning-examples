@@ -45,9 +45,9 @@ For more info, Chef doc at https://github.com/opscode/chef-provisioning/blob/mas
 
 ### AWS private Key
 
-All the info available in the Chef doc at https://github.com/opscode/chef-provisioning/blob/master/docs/blogs/2012-05-22-new-driver-interface.html.markdown#using-metal-today-aws
+Here is the [documented info on where to place your private key](https://github.com/opscode/chef-provisioning/blob/master/docs/blogs/2012-05-22-new-driver-interface.html.markdown#private-keys)
 
-I add `my_aws_key.pem` in `~/.chef/keys/`
+Personally, I have placed `my_aws_key.pem` in `~/.chef/keys/`
 
 ## Before you can launch the examples
 
