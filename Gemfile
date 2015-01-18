@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rake'
 
+gem 'berkshelf', '~> 3.2.3'
+
 gem 'chef-dk', '0.3.5'
 gem 'chef-provisioning', '0.17'
 gem 'chef-provisioning-fog', '0.11'
