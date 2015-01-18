@@ -1,4 +1,5 @@
 language: ruby
+bundler_args: --without development
 rvm:
 - 2.1.5
 cache:
@@ -19,7 +20,6 @@ env:
   global:
   - AWS_KEYPAIR_NAME='travisci_chef_cook_ec2'
   - AWS_REGION='eu-west-1'
-  - EC2_SSH_KEY_PATH=~/.ssh/travisci_chef_cook_ec2.pem
   - secure: SpCIPIxhCizoQ8mm6lk5AFfghbPHv3fCkGsUZRUUApF2buNbr6G9gXuA+LSzBHovPmzA/8StFCKwqV1+a4ieXwwDe6xZNvebo37bKyb79I2nyuzNDo6vC47hFvj8Sb8A9Vca8s7pkNB9FB7qp5IIJ00Pqj6DUdFBbhjta8UhjWs=
   - secure: SAmMhaXV5L8MF9qEzmODy6D5l5LIJAqLMDLZdFd6jkN2NiXbTaZeqTzvnnzIGNwugGKGXmdmD+cY9TafJVQwZNVgColPvVs5yNR+V1CQ70fFnttwea1V1BpL9+EV0mOhgF3H4hIvLtDNRjCkBtRJzjhZnN3edivwog58RPeR+N4=
   - secure: S7LEw/LTIVizovc90JMuddlpJ9wqsA+4UQoEJ6QLM3t80JurFi6T3ffgVxDMlAjMqw1rIFFBCbNy6fjE0wgBDbF8Ew4FM2FoN/WsyKuDn3AJydCrk44xEdZQdXhbGnVrBmpXLtGSBK36PzQIGvBF4uNdbd6AG1IswLBgZYNdsNI=
