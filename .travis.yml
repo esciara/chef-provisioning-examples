@@ -1,0 +1,25 @@
+language: ruby
+bundler_args: "--without development"
+rvm:
+- 2.1.5
+cache:
+  bundler: true
+before_install:
+- openssl aes-256-cbc -K $encrypted_5571120d826a_key -iv $encrypted_5571120d826a_iv
+  -in travisci_chef_cook_ec2.pem.enc -out travisci_chef_cook_ec2.pem -d
+- mv travisci_chef_cook_ec2.pem ~/.ssh/
+- chmod 400 ~/.ssh/travisci_chef_cook_ec2.pem
+- ls -la ~/.ssh
+script:
+- bundle exec rake aws_simplest
+after_script:
+- bundle exec rake aws_destroy
+branches:
+  only:
+  - travis
+env:
+  global:
+  - AWS_KEYPAIR_NAME='travisci_chef_cook_ec2'
+  - AWS_REGION='eu-west-1'
+  - secure: SpCIPIxhCizoQ8mm6lk5AFfghbPHv3fCkGsUZRUUApF2buNbr6G9gXuA+LSzBHovPmzA/8StFCKwqV1+a4ieXwwDe6xZNvebo37bKyb79I2nyuzNDo6vC47hFvj8Sb8A9Vca8s7pkNB9FB7qp5IIJ00Pqj6DUdFBbhjta8UhjWs=
+  - secure: SAmMhaXV5L8MF9qEzmODy6D5l5LIJAqLMDLZdFd6jkN2NiXbTaZeqTzvnnzIGNwugGKGXmdmD+cY9TafJVQwZNVgColPvVs5yNR+V1CQ70fFnttwea1V1BpL9+EV0mOhgF3H4hIvLtDNRjCkBtRJzjhZnN3edivwog58RPeR+N4=

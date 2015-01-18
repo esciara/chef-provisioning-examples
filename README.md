@@ -134,6 +134,10 @@ $ bundle exec berks vendor cookbooks
 $ bundle exec chef-client -z aws_setup.rb simplest_machine.rb
 ```
 
+## Continuous Integration
+
+To read more about how continuous integration has been set up on Travis, read the [`TESTING.md`](TESTING.md) file.
+
 ## TO DO
 
 * Explain what happened: 
