@@ -11,12 +11,12 @@ before_install:
 - chmod 400 ~/.ssh/travisci_chef_cook_ec2.pem
 - ls -la ~/.ssh
 script:
-- bundle exec rake aws_simplest
+- '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && bundle exec rake aws_simplest || false'
 after_script:
-- bundle exec rake aws_destroy
+- '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && bundle exec rake aws_destroy || false'
 branches:
   only:
-  - travis
+  - master
 env:
   global:
   - AWS_KEYPAIR_NAME='travisci_chef_cook_ec2'
