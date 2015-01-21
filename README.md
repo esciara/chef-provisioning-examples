@@ -1,3 +1,4 @@
+[![Build Status](https://secure.travis-ci.org/esciara/chef-provisioning-examples.svg?branch=master)](https://travis-ci.org/esciara/chef-provisioning-examples)
 [![Stories in Ready](https://badge.waffle.io/esciara/chef-provisioning-examples.png?label=ready&title=Ready)](https://waffle.io/esciara/chef-provisioning-examples)
 chef-provisioning-examples
 ==========================
