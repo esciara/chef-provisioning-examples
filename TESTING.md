@@ -23,3 +23,7 @@ script:
   - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && bundle exec rake tests:integration || false'
 ```
 There could be a better way to handle this, as in "you could restrict these tests only to situations where the environment variables are available", but I don't know how to do that yet... So it will have to wait. In any case, it is a #TODO.
+
+## Regular Periodic Automated Health Check with Tron-ci
+
+The last build is regularly replaid to check that the project is still working fine despite dependencies updates. This is done using [Tron-CI](http://tron-ci.herokuapp.com/jobs/3563258/)
